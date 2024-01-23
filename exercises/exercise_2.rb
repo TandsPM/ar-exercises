@@ -15,10 +15,10 @@ puts "----------"
 
 @store2 = Store.find(id = 2)
 
-store = Store.find_by(annual_revenue: 300000)
+store1 = Store.find_by(annual_revenue: 300000)
 
-if store
-  store.update(annual_revenue: 400000)
+if store1
+  store1.update(annual_revenue: 400000)
 else
   puts "No store found with the annual revenue of $300,000."
 end
