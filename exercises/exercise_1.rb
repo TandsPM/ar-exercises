@@ -16,16 +16,17 @@ puts "----------"
 
 class AddLocationToStores < ActiveRecord::Migration[7.1]
   def change
-    add_column :location, :annual_revenue, :apparel_carried
+    add_column :location, :annual_revenue, :mens_apparel, :womens_apparel
   end
 end
 
 class Store < ActiveRecord::Base
-  attr_accessor :location, :annual_revenue, :apparel_carried
+  attr_accessor :location, :annual_revenue, :mens_apparel, :womens_apparel
 end
 
-Store.create(location: 'Burnaby', annual_revenue: 300000, apparel_carried: "men's and women's")
-Store.create(location: 'Richmond', annual_revenue: 1260000, apparel_carried: "women's only")
-Store.create(location: 'Gastown', annual_revenue: 190000, apparel_carried: "men's only")
+Store.create(location: 'Burnaby', annual_revenue: 300000, mens_apparel: true, womens_apparel: true)
+Store.create(location: 'Richmond', annual_revenue: 1260000, mens_apparel: false, womens_apparel: true)
+Store.create(location: 'Gastown', annual_revenue: 190000, mens_apparel: true, womens_apparel: false)
 
 puts "Number of stores in the database: #{Store.count}"
+
